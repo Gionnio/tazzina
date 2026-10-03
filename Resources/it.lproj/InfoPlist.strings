@@ -1,0 +1,3 @@
+"NSLocationUsageDescription" = "Tazzina legge il nome della rete Wi-Fi per i trigger Wi-Fi. macOS richiede per questo il permesso Posizione.";
+"NSLocationWhenInUseUsageDescription" = "Tazzina legge il nome della rete Wi-Fi per i trigger Wi-Fi. macOS richiede per questo il permesso Posizione.";
+"NSBluetoothAlwaysUsageDescription" = "Tazzina controlla quali dispositivi Bluetooth sono collegati per i trigger Bluetooth.";

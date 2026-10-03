@@ -1,0 +1,164 @@
+/* Tema */
+"System" = "Sistema";
+"Light" = "Chiaro";
+"Dark" = "Scuro";
+
+/* Fine della sessione */
+"Time is up. Your Mac can sleep again." = "Tempo scaduto. Il Mac può tornare a dormire.";
+"%@ was closed. Your Mac can sleep again." = "%@ è stata chiusa. Il Mac può tornare a dormire.";
+"Battery dropped to %lld%%. Your Mac can sleep again." = "La batteria è scesa al %lld%%. Il Mac può tornare a dormire.";
+"The power adapter was disconnected. Your Mac can sleep again." = "L'alimentatore è stato scollegato. Il Mac può tornare a dormire.";
+"Session ended" = "Sessione terminata";
+
+/* Barra dei menu */
+"Tazzina: off" = "Tazzina: spenta";
+"Tazzina: keeping your Mac awake" = "Tazzina: il Mac resta sveglio";
+"Tazzina is on" = "Tazzina è attiva";
+"Tazzina is off" = "Tazzina è spenta";
+"Turn Off" = "Spegni";
+"Extend" = "Prolunga";
+"Allow Display Sleep" = "Lascia spegnere lo schermo";
+"Stay Awake with Lid Closed" = "Sveglio anche a coperchio chiuso";
+"Start a New Session" = "Nuova sessione";
+"Indefinitely" = "Senza limite di tempo";
+"For" = "Per";
+"Until" = "Fino alle";
+"While App Is Running" = "Finché è aperta";
+"Other Time…" = "Altro orario…";
+"No open apps" = "Nessuna app aperta";
+"No time limit" = "Senza limite di tempo";
+"While %@ is running" = "Finché è aperta %@";
+"Until %@ (%@ left)" = "Fino alle %1$@ (mancano %2$@)";
+"Settings…" = "Impostazioni…";
+"About Tazzina" = "Informazioni su Tazzina";
+"Quit Tazzina" = "Esci da Tazzina";
+
+/* Finestre */
+"Tazzina Settings" = "Impostazioni di Tazzina";
+"Keep Awake Until" = "Sveglio fino a…";
+"Keep the Mac awake until:" = "Tieni sveglio il Mac fino a:";
+"Cancel" = "Annulla";
+"Start" = "Avvia";
+"Version %@ (%@)" = "Versione %1$@ (%2$@)";
+"Made with" = "Fatta con";
+"by Gionnio" = "da Gionnio";
+"GitHub Repository" = "Repository GitHub";
+
+/* Impostazioni: schede */
+"General" = "Generale";
+"Session" = "Sessione";
+"Sounds" = "Suoni";
+"Closed Lid" = "Coperchio chiuso";
+
+/* Impostazioni: Generale */
+"Launch at login" = "Apri al login";
+"Start a session when Tazzina opens" = "Avvia una sessione quando si apre Tazzina";
+"Uses the quick session duration below." = "Usa la durata della sessione rapida qui sotto.";
+"Menu bar icon" = "Icona nella barra dei menu";
+"Left click" = "Clic sinistro";
+"Turns Tazzina on or off" = "Accende o spegne Tazzina";
+"Opens the menu" = "Apre il menu";
+"Right click or Control-click always opens the menu." = "Il clic destro (o Ctrl-clic) apre sempre il menu.";
+"Quick session duration" = "Durata della sessione rapida";
+"Show remaining time next to the icon" = "Mostra il tempo rimanente accanto all'icona";
+"Theme" = "Tema";
+
+/* Impostazioni: Sessione */
+"Allow the display to sleep" = "Lascia spegnere lo schermo";
+"The Mac stays awake but the screen can turn off. Applies to new sessions; you can change it from the menu during a session." = "Il Mac resta sveglio ma lo schermo può spegnersi. Vale per le nuove sessioni; durante una sessione puoi cambiarlo dal menu.";
+"Battery" = "Batteria";
+"End the session when the battery is low" = "Termina la sessione quando la batteria è scarica";
+"Only while running on battery." = "Solo quando il Mac va a batteria.";
+"Below %lld%%" = "Sotto il %lld%%";
+"End the session when the power adapter is disconnected" = "Termina la sessione quando scolleghi l'alimentatore";
+"Notifications" = "Notifiche";
+"Notify me when a session ends on its own" = "Avvisami quando una sessione termina da sola";
+"When time is up, the chosen app is closed or the battery runs low." = "Quando scade il tempo, si chiude l'app scelta o la batteria si scarica.";
+
+/* Impostazioni: Suoni */
+"Play a sound when Tazzina turns on" = "Suono quando Tazzina si accende";
+"Play a sound when Tazzina turns off" = "Suono quando Tazzina si spegne";
+"The turn-off sound also plays when a session ends on its own." = "Il suono di spegnimento si sente anche quando una sessione termina da sola.";
+"Volume" = "Volume";
+"Sound" = "Suono";
+"Play" = "Ascolta";
+
+/* Impostazioni: Coperchio chiuso */
+"macOS always sleeps when you close the lid, even if an app asks it not to. To keep working with the lid closed, Tazzina needs a small system service, approved once in System Settings. Sleep goes back to normal as soon as the session ends, Tazzina quits or crashes." = "Quando chiudi il coperchio macOS va sempre in stop, anche se un'app gli chiede di restare sveglio. Per continuare a lavorare a coperchio chiuso Tazzina usa un piccolo servizio di sistema, da approvare una volta in Impostazioni di Sistema. Lo stop torna normale appena finisce la sessione o Tazzina si chiude, anche per un crash.";
+"System service" = "Servizio di sistema";
+"Install" = "Installa";
+"Open System Settings" = "Apri Impostazioni di Sistema";
+"Check Again" = "Ricontrolla";
+"Remove" = "Rimuovi";
+"In System Settings › General › Login Items & Extensions, turn on Tazzina under “Allow in the Background”." = "In Impostazioni di Sistema › Generali › Elementi login ed estensioni, attiva Tazzina sotto “Consenti in background”.";
+"Stay awake with the lid closed in every new session" = "Resta sveglio a coperchio chiuso in ogni nuova sessione";
+"You can also turn it on or off for the current session from the menu." = "Puoi attivarlo o disattivarlo anche per la sessione in corso, dal menu.";
+"Don't put a running Mac in a bag: with the lid closed and no airflow it can overheat." = "Non mettere in borsa un Mac acceso: a coperchio chiuso e senza aria può surriscaldarsi.";
+"Installed" = "Installato";
+"Waiting for approval" = "In attesa di approvazione";
+"Not installed" = "Non installato";
+
+/* Trigger: condizioni */
+"App is running" = "App aperta";
+"App is in front" = "App in primo piano";
+"Wi-Fi network" = "Rete Wi-Fi";
+"External display connected" = "Monitor esterno collegato";
+"Power adapter" = "Alimentatore";
+"Battery level" = "Livello batteria";
+"Time of day" = "Orario";
+"USB device connected" = "Dispositivo USB collegato";
+"Bluetooth device connected" = "Dispositivo Bluetooth collegato";
+"Drive connected" = "Disco collegato";
+"%@ is running" = "%@ è aperta";
+"%@ is in front" = "%@ in primo piano";
+"Wi-Fi “%@”" = "Wi-Fi “%@”";
+"External display" = "Monitor esterno";
+"On power adapter" = "Con alimentatore";
+"On battery" = "A batteria";
+"Battery above %lld%%" = "Batteria sopra il %lld%%";
+"Drive “%@”" = "Disco “%@”";
+"Every day" = "Tutti i giorni";
+"Weekdays" = "Lun–ven";
+"Weekends" = "Weekend";
+
+/* Trigger: impostazioni */
+"Use triggers" = "Usa i trigger";
+"A trigger keeps the Mac awake while all its conditions are true, and lets it sleep again when they stop. A session you start yourself always comes first." = "Un trigger tiene sveglio il Mac finché tutte le sue condizioni sono vere e lo lascia dormire quando smettono di esserlo. Una sessione avviata a mano ha sempre la precedenza.";
+"Play the on/off sounds for triggers too" = "Suoni di accensione e spegnimento anche per i trigger";
+"macOS shows the Wi-Fi network name only to apps allowed to use Location." = "macOS mostra il nome della rete Wi-Fi solo alle app con il permesso Posizione.";
+"Open Location Settings" = "Apri impostazioni Posizione";
+"No triggers yet." = "Ancora nessun trigger.";
+"Triggers" = "Trigger";
+"New Trigger" = "Nuovo trigger";
+"Add Trigger" = "Aggiungi trigger";
+"No conditions" = "Nessuna condizione";
+"Active" = "Attivo";
+"Paused" = "In pausa";
+"Edit" = "Modifica";
+"Delete" = "Elimina";
+"Name" = "Nome";
+"Add at least one condition." = "Aggiungi almeno una condizione.";
+"Keep the Mac awake while all these are true" = "Tieni sveglio il Mac finché sono vere tutte queste condizioni";
+"Add Condition" = "Aggiungi condizione";
+"During the session" = "Durante la sessione";
+"Stay awake with the lid closed" = "Resta sveglio a coperchio chiuso";
+"Install the system service in the Closed Lid tab first." = "Prima installa il servizio di sistema nella scheda Coperchio chiuso.";
+"Save" = "Salva";
+"Network name" = "Nome della rete";
+"True while at least one display other than the built-in one is connected." = "Vera finché è collegato almeno un monitor oltre a quello integrato.";
+"Connected" = "Collegato";
+"Disconnected (on battery)" = "Scollegato (a batteria)";
+"Above %lld%%" = "Sopra il %lld%%";
+"Device name" = "Nome del dispositivo";
+"Drive name" = "Nome del disco";
+"Nothing found" = "Niente trovato";
+"Choose" = "Scegli";
+"No app chosen" = "Nessuna app scelta";
+"Other App…" = "Altra app…";
+"From" = "Dalle";
+"to" = "alle";
+"Ends the next day." = "Finisce il giorno dopo.";
+
+/* Trigger: menu */
+"Started by the “%@” trigger" = "Avviata dal trigger “%@”";
+"Use Triggers" = "Usa i trigger";

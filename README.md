@@ -8,10 +8,7 @@
 
 **Tazzina** is a native macOS menu bar app that keeps your Mac awake: for as long as you want, until a set time, while an app is open, or automatically whenever your own triggers say so.
 
-<p align="center">
-  <img width="300" alt="Tazzina menu" src="docs/menu.png" />
-  <img width="520" alt="Tazzina Settings" src="docs/settings.png" />
-</p>
+<img width="632" alt="Tazzina Settings" src="docs/settings.png" />
 
 ## ✨ Features
 - **One click:** left click on the cup turns Tazzina on or off; right click (or Control-click) opens the menu. Left click can also be set to open the menu.

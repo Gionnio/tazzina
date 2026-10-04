@@ -38,8 +38,12 @@ brew install --cask gionnio/tap/tazzina
 
 ### ⚠️ How to open the app
 Tazzina is not signed with an Apple Developer ID, so macOS blocks it the first time:
-- right click on **Tazzina.app** → **Open** → **Open**;
-- or go to **System Settings › Privacy & Security** and click **Open Anyway**.
+
+1. Open `Tazzina` once and close the warning.
+2. Go to **System Settings → Privacy & Security**, scroll down and click **Open Anyway** next to the Tazzina message.
+3. Confirm with **Open**.
+
+*Right-click → Open no longer works on macOS 15 (Sequoia) and later. You only need to do this once.*
 
 Wi-Fi triggers need **Location** permission (macOS only reveals the network name to apps allowed to use Location). Closed-lid mode needs the system service to be allowed in **System Settings › General › Login Items & Extensions**.
 

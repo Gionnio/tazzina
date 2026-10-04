@@ -1,3 +1,4 @@
+import AppKit
 import ServiceManagement
 import SwiftUI
 
@@ -40,6 +41,7 @@ struct Hint: View {
 struct GeneralPane: View {
     @ObservedObject private var settings = AppSettings.shared
     @State private var launchAtLogin = SMAppService.mainApp.status == .enabled
+    @State private var language = AppLanguage.current
 
     var body: some View {
         Form {
@@ -71,6 +73,15 @@ struct GeneralPane: View {
             }
 
             Section {
+                VStack(alignment: .leading, spacing: 4) {
+                    Picker("Language", selection: $language) {
+                        Text("System").tag("")
+                        Text(verbatim: "Italiano").tag("it")
+                        Text(verbatim: "English").tag("en")
+                    }
+                    .onChange(of: language) { _, code in AppLanguage.set(code) }
+                    Hint("Tazzina restarts to change language.")
+                }
                 Picker("Theme", selection: $settings.theme) {
                     ForEach(AppTheme.allCases) { theme in
                         Text(theme.label).tag(theme.rawValue)
@@ -254,5 +265,33 @@ struct LidPane: View {
             .padding(.horizontal, 10)
             .padding(.vertical, 3)
             .background(color.opacity(0.18), in: Capsule())
+    }
+}
+
+/// Lingua dell'app, indipendente da quella del Mac. Cambiarla riavvia Tazzina.
+@MainActor
+enum AppLanguage {
+    /// "" = lingua di sistema, altrimenti "it" o "en".
+    static var current: String {
+        (UserDefaults.standard.persistentDomain(forName: Bundle.main.bundleIdentifier ?? "")?["AppleLanguages"]
+            as? [String])?.first.map { String($0.prefix(2)) } ?? ""
+    }
+
+    static func set(_ code: String) {
+        guard code != current else { return }
+        if code.isEmpty {
+            UserDefaults.standard.removeObject(forKey: "AppleLanguages")
+        } else {
+            UserDefaults.standard.set([code], forKey: "AppleLanguages")
+        }
+        relaunch()
+    }
+
+    private static func relaunch() {
+        let task = Process()
+        task.executableURL = URL(fileURLWithPath: "/bin/sh")
+        task.arguments = ["-c", "sleep 1; /usr/bin/open \"$0\"", Bundle.main.bundlePath]
+        try? task.run()
+        NSApp.terminate(nil)
     }
 }

@@ -1,1 +1,170 @@
-"Tazzina" = "Tazzina";
+/* English. Keys are already English: values match, kept explicit for completeness. */
+
+/* Tema */
+"System" = "System";
+"Light" = "Light";
+"Dark" = "Dark";
+
+/* Fine della sessione */
+"Time is up. Your Mac can sleep again." = "Time is up. Your Mac can sleep again.";
+"%@ was closed. Your Mac can sleep again." = "%@ was closed. Your Mac can sleep again.";
+"Battery dropped to %lld%%. Your Mac can sleep again." = "Battery dropped to %lld%%. Your Mac can sleep again.";
+"The power adapter was disconnected. Your Mac can sleep again." = "The power adapter was disconnected. Your Mac can sleep again.";
+"Session ended" = "Session ended";
+
+/* Barra dei menu */
+"Tazzina: off" = "Tazzina: off";
+"Tazzina: keeping your Mac awake" = "Tazzina: keeping your Mac awake";
+"Tazzina is on" = "Tazzina is on";
+"Tazzina is off" = "Tazzina is off";
+"Turn Off" = "Turn Off";
+"Extend" = "Extend";
+"Allow Display Sleep" = "Allow Display Sleep";
+"Stay Awake with Lid Closed" = "Stay Awake with Lid Closed";
+"Start a New Session" = "Start a New Session";
+"Indefinitely" = "Indefinitely";
+"For" = "For";
+"Until" = "Until";
+"While App Is Running" = "While App Is Running";
+"Other Time…" = "Other Time…";
+"No open apps" = "No open apps";
+"No time limit" = "No time limit";
+"While %@ is running" = "While %@ is running";
+"Until %@ (%@ left)" = "Until %@ (%@ left)";
+"Settings…" = "Settings…";
+"About Tazzina" = "About Tazzina";
+"Quit Tazzina" = "Quit Tazzina";
+
+/* Finestre */
+"Tazzina Settings" = "Tazzina Settings";
+"Keep Awake Until" = "Keep Awake Until";
+"Keep the Mac awake until:" = "Keep the Mac awake until:";
+"Cancel" = "Cancel";
+"Start" = "Start";
+"Version %@ (%@)" = "Version %@ (%@)";
+"Made with" = "Made with";
+"by Gionnio" = "by Gionnio";
+"GitHub Repository" = "GitHub Repository";
+
+/* Impostazioni: schede */
+"General" = "General";
+"Session" = "Session";
+"Sounds" = "Sounds";
+"Closed Lid" = "Closed Lid";
+
+/* Impostazioni: Generale */
+"Launch at login" = "Launch at login";
+"Start a session when Tazzina opens" = "Start a session when Tazzina opens";
+"Uses the quick session duration below." = "Uses the quick session duration below.";
+"Menu bar icon" = "Menu bar icon";
+"Left click" = "Left click";
+"Turns Tazzina on or off" = "Turns Tazzina on or off";
+"Opens the menu" = "Opens the menu";
+"Right click or Control-click always opens the menu." = "Right click or Control-click always opens the menu.";
+"Quick session duration" = "Quick session duration";
+"Show remaining time next to the icon" = "Show remaining time next to the icon";
+"Theme" = "Theme";
+
+/* Impostazioni: Sessione */
+"Allow the display to sleep" = "Allow the display to sleep";
+"The Mac stays awake but the screen can turn off. Applies to new sessions; you can change it from the menu during a session." = "The Mac stays awake but the screen can turn off. Applies to new sessions; you can change it from the menu during a session.";
+"Battery" = "Battery";
+"End the session when the battery is low" = "End the session when the battery is low";
+"Only while running on battery." = "Only while running on battery.";
+"Below %lld%%" = "Below %lld%%";
+"End the session when the power adapter is disconnected" = "End the session when the power adapter is disconnected";
+"Notifications" = "Notifications";
+"Notify me when a session ends on its own" = "Notify me when a session ends on its own";
+"When time is up, the chosen app is closed or the battery runs low." = "When time is up, the chosen app is closed or the battery runs low.";
+
+/* Impostazioni: Suoni */
+"Play a sound when Tazzina turns on" = "Play a sound when Tazzina turns on";
+"Play a sound when Tazzina turns off" = "Play a sound when Tazzina turns off";
+"The turn-off sound also plays when a session ends on its own." = "The turn-off sound also plays when a session ends on its own.";
+"Volume" = "Volume";
+"Sound" = "Sound";
+"Play" = "Play";
+
+/* Impostazioni: Coperchio chiuso */
+"macOS always sleeps when you close the lid, even if an app asks it not to. To keep working with the lid closed, Tazzina needs a small system service, approved once in System Settings. Sleep goes back to normal as soon as the session ends, Tazzina quits or crashes." = "macOS always sleeps when you close the lid, even if an app asks it not to. To keep working with the lid closed, Tazzina needs a small system service, approved once in System Settings. Sleep goes back to normal as soon as the session ends, Tazzina quits or crashes.";
+"System service" = "System service";
+"Install" = "Install";
+"Open System Settings" = "Open System Settings";
+"Check Again" = "Check Again";
+"Remove" = "Remove";
+"In System Settings › General › Login Items & Extensions, turn on Tazzina under “Allow in the Background”." = "In System Settings › General › Login Items & Extensions, turn on Tazzina under “Allow in the Background”.";
+"Stay awake with the lid closed in every new session" = "Stay awake with the lid closed in every new session";
+"You can also turn it on or off for the current session from the menu." = "You can also turn it on or off for the current session from the menu.";
+"Don't put a running Mac in a bag: with the lid closed and no airflow it can overheat." = "Don't put a running Mac in a bag: with the lid closed and no airflow it can overheat.";
+"Installed" = "Installed";
+"Waiting for approval" = "Waiting for approval";
+"Not installed" = "Not installed";
+
+/* Trigger: condizioni */
+"App is running" = "App is running";
+"App is in front" = "App is in front";
+"Wi-Fi network" = "Wi-Fi network";
+"External display connected" = "External display connected";
+"Power adapter" = "Power adapter";
+"Battery level" = "Battery level";
+"Time of day" = "Time of day";
+"USB device connected" = "USB device connected";
+"Bluetooth device connected" = "Bluetooth device connected";
+"Drive connected" = "Drive connected";
+"%@ is running" = "%@ is running";
+"%@ is in front" = "%@ is in front";
+"Wi-Fi “%@”" = "Wi-Fi “%@”";
+"External display" = "External display";
+"On power adapter" = "On power adapter";
+"On battery" = "On battery";
+"Battery above %lld%%" = "Battery above %lld%%";
+"Drive “%@”" = "Drive “%@”";
+"Every day" = "Every day";
+"Weekdays" = "Weekdays";
+"Weekends" = "Weekends";
+
+/* Trigger: impostazioni */
+"Use triggers" = "Use triggers";
+"A trigger keeps the Mac awake while all its conditions are true, and lets it sleep again when they stop. A session you start yourself always comes first." = "A trigger keeps the Mac awake while all its conditions are true, and lets it sleep again when they stop. A session you start yourself always comes first.";
+"Play the on/off sounds for triggers too" = "Play the on/off sounds for triggers too";
+"macOS shows the Wi-Fi network name only to apps allowed to use Location." = "macOS shows the Wi-Fi network name only to apps allowed to use Location.";
+"Open Location Settings" = "Open Location Settings";
+"No triggers yet." = "No triggers yet.";
+"Triggers" = "Triggers";
+"New Trigger" = "New Trigger";
+"Add Trigger" = "Add Trigger";
+"No conditions" = "No conditions";
+"Active" = "Active";
+"Paused" = "Paused";
+"Edit" = "Edit";
+"Delete" = "Delete";
+"Name" = "Name";
+"Add at least one condition." = "Add at least one condition.";
+"Keep the Mac awake while all these are true" = "Keep the Mac awake while all these are true";
+"Add Condition" = "Add Condition";
+"During the session" = "During the session";
+"Stay awake with the lid closed" = "Stay awake with the lid closed";
+"Install the system service in the Closed Lid tab first." = "Install the system service in the Closed Lid tab first.";
+"Save" = "Save";
+"Network name" = "Network name";
+"True while at least one display other than the built-in one is connected." = "True while at least one display other than the built-in one is connected.";
+"Connected" = "Connected";
+"Disconnected (on battery)" = "Disconnected (on battery)";
+"Above %lld%%" = "Above %lld%%";
+"Device name" = "Device name";
+"Drive name" = "Drive name";
+"Nothing found" = "Nothing found";
+"Choose" = "Choose";
+"No app chosen" = "No app chosen";
+"Other App…" = "Other App…";
+"From" = "From";
+"to" = "to";
+"Ends the next day." = "Ends the next day.";
+
+/* Trigger: menu */
+"Started by the “%@” trigger" = "Started by the “%@” trigger";
+"Use Triggers" = "Use Triggers";
+
+/* Lingua */
+"Language" = "Language";
+"Tazzina restarts to change language." = "Tazzina restarts to change language.";

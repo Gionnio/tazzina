@@ -25,10 +25,15 @@
 - **Automation:** `tazzina://on`, `tazzina://on?minutes=30`, `tazzina://on?app=com.apple.Safari`, `tazzina://off`, `tazzina://toggle` (from Terminal: `open "tazzina://toggle"`, or from Shortcuts with "Open URL").
 - **Lightweight:** reacts to system events instead of polling every second.
 - **Appearance:** System, Light and Dark themes.
-- **Multi-language:** Italian 🇮🇹 and English 🇬🇧.
+- **Multi-language:** Italian 🇮🇹 and English 🇬🇧, following the system or chosen in Settings.
 
 ## 🚀 Requirements
 - macOS 14 Sonoma or later (Apple Silicon or Intel)
+
+## 🍺 Installation via Homebrew
+```bash
+brew install --cask gionnio/tap/tazzina
+```
 
 ## 📥 Manual Installation
 1. Download `Tazzina_vX.Y.Z.zip` from the Releases page and unzip it.
@@ -59,7 +64,7 @@ cd tazzina
 - [ ] More trigger conditions (audio playing, user idle, IP address / VPN)
 - [ ] Alarm when the lid is closed on battery during a session
 - [ ] Session statistics
-- [ ] Homebrew cask
+- [x] Homebrew cask
 
 ## Privacy & Security
 - Tazzina works entirely on your Mac: no network connections, no analytics.

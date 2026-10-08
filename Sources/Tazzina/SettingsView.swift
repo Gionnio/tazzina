@@ -42,6 +42,7 @@ struct GeneralPane: View {
     @ObservedObject private var settings = AppSettings.shared
     @State private var launchAtLogin = SMAppService.mainApp.status == .enabled
     @State private var language = AppLanguage.current
+    @State private var askRelaunch = false
 
     var body: some View {
         Form {
@@ -79,7 +80,9 @@ struct GeneralPane: View {
                         Text(verbatim: "Italiano").tag("it")
                         Text(verbatim: "English").tag("en")
                     }
-                    .onChange(of: language) { _, code in AppLanguage.set(code) }
+                    .onChange(of: language) { _, code in
+                        if AppLanguage.set(code) { askRelaunch = true }
+                    }
                     Hint("Tazzina restarts to change language.")
                 }
                 Picker("Theme", selection: $settings.theme) {
@@ -91,6 +94,10 @@ struct GeneralPane: View {
             }
         }
         .formStyle(.grouped)
+        .alert("Relaunch Tazzina to change the language?", isPresented: $askRelaunch) {
+            Button("Relaunch Now") { AppLanguage.relaunch() }
+            Button("Later", role: .cancel) {}
+        }
     }
 
     private func setLaunchAtLogin(_ enabled: Bool) {
@@ -277,21 +284,35 @@ enum AppLanguage {
             as? [String])?.first.map { String($0.prefix(2)) } ?? ""
     }
 
-    static func set(_ code: String) {
-        guard code != current else { return }
+    /// Salva la lingua scelta; true se è cambiata (macOS la applica al prossimo avvio).
+    @discardableResult
+    static func set(_ code: String) -> Bool {
+        guard code != current else { return false }
         if code.isEmpty {
             UserDefaults.standard.removeObject(forKey: "AppleLanguages")
         } else {
             UserDefaults.standard.set([code], forKey: "AppleLanguages")
         }
-        relaunch()
+        return true
     }
 
-    private static func relaunch() {
-        let task = Process()
-        task.executableURL = URL(fileURLWithPath: "/bin/sh")
-        task.arguments = ["-c", "sleep 1; /usr/bin/open \"$0\"", Bundle.main.bundlePath]
-        try? task.run()
+    private static var relaunchRequested: Date?
+    private static var relaunchObserver: NSObjectProtocol?
+
+    /// Chiude Tazzina e la riapre quando è davvero chiusa, così non ne restano due aperte.
+    /// La riapertura parte solo se la chiusura va a buon fine.
+    static func relaunch() {
+        relaunchRequested = Date()
+        if relaunchObserver == nil {
+            relaunchObserver = NotificationCenter.default.addObserver(forName: NSApplication.willTerminateNotification, object: nil, queue: .main) { _ in
+                guard let asked = relaunchRequested, Date().timeIntervalSince(asked) < 120 else { return }
+                let pid = ProcessInfo.processInfo.processIdentifier
+                let task = Process()
+                task.executableURL = URL(fileURLWithPath: "/bin/sh")
+                task.arguments = ["-c", "while /bin/kill -0 \(pid) 2>/dev/null; do sleep 0.2; done; /usr/bin/open \"$0\"", Bundle.main.bundlePath]
+                try? task.run()
+            }
+        }
         NSApp.terminate(nil)
     }
 }

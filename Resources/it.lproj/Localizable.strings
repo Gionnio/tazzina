@@ -166,3 +166,6 @@
 /* Lingua */
 "Language" = "Lingua";
 "Tazzina restarts to change language." = "Tazzina si riavvia per cambiare lingua.";
+"Relaunch Tazzina to change the language?" = "Riavviare Tazzina per cambiare lingua?";
+"Relaunch Now" = "Riavvia ora";
+"Later" = "Più tardi";

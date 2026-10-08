@@ -168,3 +168,6 @@
 /* Lingua */
 "Language" = "Language";
 "Tazzina restarts to change language." = "Tazzina restarts to change language.";
+"Relaunch Tazzina to change the language?" = "Relaunch Tazzina to change the language?";
+"Relaunch Now" = "Relaunch Now";
+"Later" = "Later";

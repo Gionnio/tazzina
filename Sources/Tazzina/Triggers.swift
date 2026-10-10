@@ -181,10 +181,12 @@ struct SystemState {
     var drives = Set<String>()
 
     @MainActor
-    static func read(for kinds: Set<Condition.Kind>) -> SystemState {
+    static func read(for kinds: Set<Condition.Kind>, closedApp: pid_t? = nil) -> SystemState {
         var state = SystemState()
         if kinds.contains(.appRunning) {
-            state.runningApps = Set(NSWorkspace.shared.runningApplications.compactMap(\.bundleIdentifier))
+            state.runningApps = Set(NSWorkspace.shared.runningApplications
+                .filter { !$0.isTerminated && $0.processIdentifier != closedApp }
+                .compactMap(\.bundleIdentifier))
         }
         if kinds.contains(.appFrontmost) {
             state.frontmostApp = NSWorkspace.shared.frontmostApplication?.bundleIdentifier

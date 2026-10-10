@@ -35,6 +35,7 @@ final class TriggerEngine: ObservableObject {
         }
 
         sessions.onUserStoppedTrigger = { [weak self] id in self?.paused.insert(id) }
+        sessions.resumePausedTrigger = { [weak self] in self?.resumePaused() ?? false }
         LocationPermission.shared.onChange = { [weak self] in self?.evaluate() }
 
         let workspace = NSWorkspace.shared.notificationCenter
@@ -55,8 +56,14 @@ final class TriggerEngine: ObservableObject {
     }
 
     private func observe(_ center: NotificationCenter, _ name: Notification.Name) {
-        let token = center.addObserver(forName: name, object: nil, queue: .main) { [weak self] _ in
-            // Piccolo ritardo: l'elenco delle app o dei dischi si aggiorna subito dopo la notifica.
+        let token = center.addObserver(forName: name, object: nil, queue: .main) { [weak self] note in
+            // L'app appena chiusa può comparire ancora per un attimo nell'elenco: la escludiamo noi.
+            let closed = name == NSWorkspace.didTerminateApplicationNotification
+                ? (note.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication)?.processIdentifier
+                : nil
+            MainActor.assumeIsolated { self?.evaluate(closedApp: closed) }
+            // Secondo controllo poco dopo, per gli elenchi (dischi, schermi) che si aggiornano in ritardo.
+            // Da solo non basta: macOS rallenta i timer delle app in background.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 MainActor.assumeIsolated { self?.evaluate() }
             }
@@ -72,11 +79,22 @@ final class TriggerEngine: ObservableObject {
         triggers.first { $0.id == id }
     }
 
-    func evaluate() {
+    /// Toglie la pausa ai trigger: se uno vale ancora la sua sessione riparte.
+    private func resumePaused() -> Bool {
+        guard !paused.isEmpty, !sessions.isActive else { return false }
+        let wasPaused = paused
+        paused.removeAll()
+        evaluate()
+        if sessions.isActive { return true }
+        paused = wasPaused
+        return false
+    }
+
+    func evaluate(closedApp: pid_t? = nil) {
         let active = settings.triggersEnabled ? triggers.filter { $0.enabled && !$0.conditions.isEmpty } : []
         let kinds = Set(active.flatMap { $0.conditions.map(\.kind) })
         if kinds.contains(.wifi) { LocationPermission.shared.request() }
-        let state = SystemState.read(for: kinds)
+        let state = SystemState.read(for: kinds, closedApp: closedApp)
 
         let nowMatching = Set(active.filter { trigger in trigger.conditions.allSatisfy { $0.isMet(in: state) } }.map(\.id))
         if nowMatching != matching { matching = nowMatching }

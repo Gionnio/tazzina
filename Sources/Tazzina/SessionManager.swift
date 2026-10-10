@@ -1,5 +1,6 @@
 import AppKit
 import Combine
+import os
 import UserNotifications
 
 /// Quanto deve durare una sessione.
@@ -52,6 +53,12 @@ final class SessionManager: ObservableObject {
     @Published private(set) var session: Session?
     /// Chiamato quando spegni a mano una sessione avviata da un trigger.
     var onUserStoppedTrigger: ((UUID) -> Void)?
+    /// Chiamato quando accendi con il clic rapido: se un trigger in pausa vale ancora lo riprende
+    /// (e restituisce true), invece di avviare una sessione manuale che non finirebbe da sola.
+    var resumePausedTrigger: (() -> Bool)?
+
+    /// Registro di avvii e arresti: `log show --predicate 'subsystem == "com.github.gionnio.Tazzina"'`.
+    private static let log = Logger(subsystem: "com.github.gionnio.Tazzina", category: "Session")
 
     let lidHelper = LidHelper()
     private let settings = AppSettings.shared
@@ -90,7 +97,7 @@ final class SessionManager: ObservableObject {
     func toggle() {
         if isActive {
             stop()
-        } else {
+        } else if resumePausedTrigger?() != true {
             start(settings.quickDuration > 0 ? .minutes(settings.quickDuration) : .none)
         }
     }
@@ -120,6 +127,7 @@ final class SessionManager: ObservableObject {
         lastPower = PowerStatus.read()
         apply()
         scheduleEnd()
+        Self.log.notice("Start: \(String(describing: source), privacy: .public), limit \(String(describing: limit), privacy: .public)")
         // Sostituire una sessione già attiva non è un'attivazione: niente suono.
         if !wasActive, settings.playStartSound, source == .manual || settings.triggerSounds {
             SystemSounds.play(settings.startSound)
@@ -130,6 +138,7 @@ final class SessionManager: ObservableObject {
         guard let ended = session else { return }
         if case .user = reason, case .trigger(let id, _) = ended.source { onUserStoppedTrigger?(id) }
         session = nil
+        Self.log.notice("Stop: \(String(describing: reason), privacy: .public), was \(String(describing: ended.source), privacy: .public)")
         endTimer?.invalidate()
         endTimer = nil
         apply()
